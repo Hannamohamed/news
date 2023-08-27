@@ -4,14 +4,43 @@ import 'package:flutter_application_7/SCREEN/NEW_FIRST.dart';
 import 'package:flutter_application_7/SCREEN/first.dart';
 import 'package:flutter_application_7/SCREEN/second.dart';
 import 'package:flutter_application_7/SCREEN/three.dart';
+import 'package:flutter_application_7/firebase_options.dart';
+import 'package:flutter_application_7/servies/fcm.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
-void main() {
+
+@pragma('vm entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.android);
+  NotificationServices().showNotification(message);
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().then((value) {
+      NotificationServices().registerNotification();
+      NotificationServices().configLocalNotification();
+    });
+  }
 
   // This widget is the root of your application.
   @override
