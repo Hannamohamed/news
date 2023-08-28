@@ -52,6 +52,9 @@ class SecondNew extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+                          AnimatedContainer(
+        duration: Duration(milliseconds: 900),
+        curve: Curves.bounceInOut,child:
                         Container(
                           padding: EdgeInsets.all(10),
                           margin: EdgeInsets.only(
@@ -66,7 +69,10 @@ class SecondNew extends StatelessWidget {
                               color: Colors.black,
                             ),
                           ),
-                        ),
+                        ),),
+                         AnimatedContainer(
+        duration: Duration(milliseconds: 1200),
+        curve: Curves.bounceInOut,child:
                         Container(
                           padding: EdgeInsets.all(8),
                           child: Text(
@@ -77,7 +83,7 @@ class SecondNew extends StatelessWidget {
                               color: Colors.black,
                             ),
                           ),
-                        ),
+                        ),),
                       ],
                     ),
                   ),
@@ -135,41 +141,49 @@ class SecondNew extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                         AnimatedContainer(
+        duration: Duration(milliseconds: 900),
+        curve: Curves.bounceInOut,child: Text(
                           '${article.publishedAt}',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                             color: Colors.black,
                           ),
-                        ),
+                        ),),
                         SizedBox(height: 10),
-                        Text(
+                         AnimatedContainer(
+        duration: Duration(milliseconds: 1200),
+        curve: Curves.bounceInOut,child: Text(
                           '${article.source.name}',
                           style: GoogleFonts.nunitoSans(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
-                        ),
+                        ),),
                         SizedBox(height: 10),
-                        Text(
+                         AnimatedContainer(
+        duration: Duration(milliseconds: 1200),
+        curve: Curves.bounceInOut,child: Text(
                           '${article.title}',
                           style: GoogleFonts.nunitoSans(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
-                        ),
+                        ),),
                         SizedBox(height: 10),
-                        Text(
+                         AnimatedContainer(
+        duration: Duration(milliseconds: 1200),
+        curve: Curves.bounceInOut,child: Text(
                           '${article.author}',
                           style: TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
-                        ),
+                        ),),
                       ],
                     ),
                   ),
