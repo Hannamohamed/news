@@ -1,3 +1,4 @@
+
 class GetNewModel {
   GetNewModel({
     required this.status,
@@ -7,19 +8,18 @@ class GetNewModel {
   late final String status;
   late final int totalResults;
   late final List<Articles> articles;
-
-  GetNewModel.fromJson(Map<String, dynamic> json) {
+  
+  GetNewModel.fromJson(Map<String, dynamic> json){
     status = json['status'];
     totalResults = json['totalResults'];
-    articles =
-        List.from(json['articles']).map((e) => Articles.fromJson(e)).toList();
+    articles = List.from(json['articles']).map((e)=>Articles.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
     _data['status'] = status;
     _data['totalResults'] = totalResults;
-    _data['articles'] = articles.map((e) => e.toJson()).toList();
+    _data['articles'] = articles.map((e)=>e.toJson()).toList();
     return _data;
   }
 }
@@ -27,24 +27,24 @@ class GetNewModel {
 class Articles {
   Articles({
     required this.source,
-    this.author,
-    required this.title,
-    this.description,
+     this.author,
+     this.title,
+    required this.description,
     required this.url,
-    this.urlToImage,
+     this.urlToImage,
     required this.publishedAt,
     required this.content,
   });
   late final Source source;
   late final String? author;
-  late final String title;
-  late final String? description;
+  late final String? title;
+  late final String description;
   late final String url;
   late final String? urlToImage;
   late final String publishedAt;
   late final String content;
-
-  Articles.fromJson(Map<String, dynamic> json) {
+  
+  Articles.fromJson(Map<String, dynamic> json){
     source = Source.fromJson(json['source']);
     author = json['author'];
     title = json['title'];
@@ -71,14 +71,13 @@ class Articles {
 
 class Source {
   Source({
-    this.id,
-    
+     this.id,
     required this.name,
   });
   late final String? id;
   late final String name;
-
-  Source.fromJson(Map<String, dynamic> json) {
+  
+  Source.fromJson(Map<String, dynamic> json){
     id = json['id'];
     name = json['name'];
   }
